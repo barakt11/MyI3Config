@@ -12,4 +12,4 @@ compileAndRun() {
     ./"${1::-2}"
 }
 
-PS1='\[\e]0;\t@\h: \w\a\]${debian_chroot:+($debian_chroot)}\t@\h:\w\$'
+PS1='\[\e]0;\t@\h: \w\a\]${debian_chroot:+($debian_chroot)}\t@\h:\w\$ '
