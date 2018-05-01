@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Type=Application
+Name=Burp Suite Professional
+Exec=/bin/sh "/home/barak/scripts/burp.sh"
+Icon=/opt/BurpSuitePro/.install4j/BurpSuitePro.png
+Categories=Application;
