@@ -6,10 +6,24 @@ alias lsf='ls -p | grep -v /'
 alias py='python $1'
 alias serach='grep -R "$1" .'
 
+search() {
+    grep -R "$1" .
+}
+
 compileAndRun() {
     gcc "$1" -o "${1::-2}"
     chmod +x "${1::-2}"
     ./"${1::-2}"
 }
+
+cd() {
+    __zsh_like_cd cd "$@"
+    echo `pwd` > /tmp/.currentdir
+}
+
+if [ -f /tmp/.currentdir ]; then
+   __zsh_like_cd cd `cat /tmp/.currentdir`
+fi
+
 
 PS1='\[\e]0;\t@\h: \w\a\]${debian_chroot:+($debian_chroot)}\t@\h:\w\$ '
