@@ -1,5 +1,5 @@
 alias frc='sudo ~/projects/frc/frc.sh'
-alias burp='java -jar ~/burpsuite_pro_v1.7.33.jar > /dev/null 2>&1 &'
+alias burp='~/scripts/burp.sh'
 alias lsd='ls -d */'
 alias opendir='thunar . > /dev/null 2>&1&'
 alias lsf='ls -p | grep -v /'
