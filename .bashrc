@@ -17,12 +17,12 @@ compileAndRun() {
 }
 
 cd() {
-    __zsh_like_cd cd "$@"
+    builtin cd "$@"
     echo `pwd` > /tmp/.currentdir
 }
 
 if [ -f /tmp/.currentdir ]; then
-   __zsh_like_cd cd `cat /tmp/.currentdir`
+   builtin cd `cat /tmp/.currentdir`
 fi
 
 
