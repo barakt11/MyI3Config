@@ -184,10 +184,10 @@ bindsym $mod+Up exec "~/scripts/movefocus.sh focus up"
 bindsym $mod+Right exec "~/scripts/movefocus.sh focus right"
 
 for_window [instance="whats-app.*"] move to scratchpad
-bindsym $mod+bracketright [instance="whats-app.*"] scratchpad show
+bindsym $mod+bracketright exec "python  ~/scripts/scrachpadSwitcher.py whats-app"
 
 for_window [instance="slack*"] move to scratchpad
-bindsym $mod+bracketleft [instance="slack*"] scratchpad show
+bindsym $mod+bracketleft exec "python  ~/scripts/scrachpadSwitcher.py slack"
 
 bindsym $mod+l exec "~/scripts/lock.sh"
 exec dunst
