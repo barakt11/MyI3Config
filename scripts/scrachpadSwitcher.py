@@ -17,19 +17,26 @@ def isAppInFocus(appName):
     appIsOpen = [s for s in intsances if appName in s]
     return appIsOpen
 
-def main(argv1): # still a lil buggy.
+def main(argv1):
+    currentLang = os.popen("~/softwares/xkblayout-state/xkblayout-state print %n").read()
+    
+    if currentLang == "Hebrew":
+        if argv1 == "whats-app":
+            argv1 = "slack"
+        else:
+            argv1 = "whats-app"
+    os.system("setxkbmap us")
     apps = ["slack", "whats-app"]
     if isAppInFocus(argv1):
+        i3.focus(instance=argv1)
         i3.move('scratchpad')
-        apps.remove(argv1)
-        if argv1 == "whats-app":
-            os.system("setxkbmap us")
         for app in apps:
             if isAppInFocus(app):
                 i3.move('scratchpad')
     else:
         if argv1 == "whats-app":
             os.system("setxkbmap il")
+        
         i3.scratchpad('show',instance=argv1+".*")
 
 if __name__ == '__main__':
