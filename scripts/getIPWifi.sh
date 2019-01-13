@@ -1,4 +1,4 @@
-wifiIP=$(ifconfig wlp2s0 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://')
+wifiIP=$(ifconfig wlp2s0 2>/dev/null|awk '/inet / {print $2}')
 if [ -z "$wifiIP" ]
 then
       exit

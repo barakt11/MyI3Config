@@ -15,6 +15,8 @@ RES=$(xrandr | head -n 1 | awk '{print $8$9$10}' | tr ',' ' ' | xargs)
 # ffmpeg -f x11grab -video_size $RES -i $DISPLAY -filter_complex "boxblur=20:1" -vframes 1 $TMPBG -loglevel quiet
 ffmpeg -y -f x11grab -video_size $RES -i $DISPLAY -vf scale=iw/20:ih/20,scale=20*iw:20*ih:flags=neighbor -vframes 1 $TMPBG -loglevel quiet
 
+pkill -u "$USER" -USR1 dunst
+
 # Set the screensaver
 i3lock -e -i $TMPBG
 
@@ -22,3 +24,5 @@ if [[ -z $1 ]]; then
     # Turn off the display after an amount of time
     sleep 30; pgrep i3lock && xset dpms force off
 fi
+
+pkill -u "$USER" -USR2 dunst

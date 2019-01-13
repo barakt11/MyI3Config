@@ -1,4 +1,4 @@
-ethIP=$(ifconfig enxd481d71ad9f9 2>/dev/null|awk '/inet addr:/ {print $2}'|sed 's/addr://')
+ethIP=$(ifconfig enxd481d719bdec 2>/dev/null|awk '/inet / {print $2}')
 if [ -z "$ethIP" ]
 then
       exit

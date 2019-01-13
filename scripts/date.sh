@@ -1,2 +1,2 @@
-currentDate=$(date '+%d/%m %H:%M %A')
-echo "<span font_desc=\"Sans Italic 10\"> $currentDate</span>"
+currentDate=$(date '+%A %H:%M %d/%m')
+echo "<span font_desc=\"Sans Italic 10\"> $currentDate     </span>"

@@ -3,4 +3,4 @@ if [ -z "$WIFI" ]
 then
       exit
 fi
-echo "<span weight=\"bold\" font_desc=\"Sans Italic 12\">📶</span><span font_desc=\"Sans Italic 10\"> $WIFI</span>"
+echo "<span weight=\"bold\" font_desc=\"Sans Italic 11\"></span><span font_desc=\"Sans Italic 10\"> $WIFI</span>"
