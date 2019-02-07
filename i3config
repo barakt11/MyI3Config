@@ -120,42 +120,44 @@ bindsym $mod+Down exec "~/scripts/movefocus.sh focus down"
 bindsym $mod+Up exec "~/scripts/movefocus.sh focus up"
 bindsym $mod+Right exec "~/scripts/movefocus.sh focus right"
 
-for_window [instance="whats-app.*"] move to scratchpad
+#for_window [instance="whats-app.*"] move to scratchpad
 #bindsym $mod+brackeכtright exec "python ~/scripts/scrachpadSwitcher.py whats-app"
 #bindsym --release $mod+35 exec "~/scripts/lock.sh"
 
-#for_window [instance="franz*"] move to scratchpad
-for_window [instance="station*"] move to scratchpad
 
 #for_window [instance="slack*"] move to scratchpad
 #bindsym $mod+bracketleft exec "python ~/scripts/scrachpadSwitcher.py slack"
 #bindsym --release $mod+34 exec "python ~/scripts/scrachpadSwitcher.py slack"
 
 #for_window [instance="whats-app.*"] move to scratchpad
-bindsym $mod+bracketright [instance="station*"] scratchpad show
 #for_window [instance="slack*"] move to scratchpad
-bindsym $mod+bracketleft [instance="station*"] scratchpad show
 
 bindsym $mod+l exec "~/scripts/lock.sh"
 exec dunst
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/scripts/vol.sh up #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/scripts/vol.sh down #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh mute # mute sound
+bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh mute #mute sound
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
-#exec xrandr --output DP-1-1 --auto --output DP-1-2 --auto --left-of DP-1-1
 exec killall notify-osd
 exec volnoti
-#exec franz
-exec /home/barakt/Downloads/browserX-1.35.0-x86_64.AppImage
-#exec slack
-#exec /opt/whats-app-linux-x64/whats-app
+exec indicator-sound-switcher
+exec franz
+bindsym $mod+bracketright [instance="franz*"] scratchpad show
+bindsym $mod+bracketleft [instance="franz*"] scratchpad show
+for_window [instance="franz*"] move to scratchpad
+
+#exec ~/Downloads/browserX-1.35.0-x86_64.AppImage
+#bindsym $mod+bracketright [instance="station*"] scratchpad show
+#bindsym $mod+bracketleft [instance="station*"] scratchpad show
+#for_window [instance="station*"] move to scratchpad
+
 exec google-chrome
 exec /home/barak/scripts/burp.sh
-#exec /home/barakt/softwares/slack-linux-x64/slack
-#exec /home/barakt/softwares/whats-app-web-linux-x64/whats-app-web
-exec /home/barakt/scripts/singlescreen.sh
-exec_always /home/barakt/scripts/changeWallpaper.sh
+#exec ~/softwares/slack-linux-x64/slack
+#exec ~/softwares/whats-app-web-linux-x64/whats-app-web
+exec ~/scripts/singlescreen.sh
+exec_always ~/scripts/changeWallpaper.sh
 bindsym --release Print exec gscreenshot-cli -c -s -f /tmp
 bindcode $mod+54 exec ~/scripts/chlang.sh
 #run this once installing this script xdg-mime default pcmanfm.desktop inode/directory
@@ -167,12 +169,11 @@ bindcode $mod+54 exec ~/scripts/chlang.sh
 # xrdb ~/.Xresources.small
 # xrdb ~/.Xresources.big 
 # after xrdb needs refresh 
-# SHIFT+SPACE cause bug - disable it via uim-pref-gtk -> gloabla key bindings 1 
+# SHIFT+SPACE cause bug -  it via uim-pref-gtk -> gloabla key bindings 1 
 # screenshot is not working
 #bindsym $mod+Shift+S move to scratchpad
 
 # Brightness control
-bindsym $mod+233 exec ~/scripts/bright_up.sh
-bindsym $mod+p exec /home/barakt/scripts/bright_up.sh
-bindsym $mod+o exec /home/barakt/scripts/bright_down.sh
-bindsym $mod+232 exec ~/scripts/bright_down.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/scripts/bright_up.sh
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/scripts/bright_down.sh
+exec blueman-applet
