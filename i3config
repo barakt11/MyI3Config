@@ -172,7 +172,9 @@ bindcode $mod+54 exec ~/scripts/chlang.sh
 # SHIFT+SPACE cause bug -  it via uim-pref-gtk -> gloabla key bindings 1 
 # screenshot is not working
 #bindsym $mod+Shift+S move to scratchpad
-
+exec i3-msg "workspace 1, move workspace to output DP-1-2"
+exec i3-msg "workspace 2, move workspace to output DP-1-1"
+exec i3-msg "workspace 3, move workspace to output eDP-1"
 # Brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/scripts/bright_up.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/scripts/bright_down.sh
