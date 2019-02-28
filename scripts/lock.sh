@@ -20,9 +20,9 @@ pkill -u "$USER" -USR1 dunst
 # Set the screensaver
 i3lock -e -i $TMPBG
 
-if [[ -z $1 ]]; then
-    # Turn off the display after an amount of time
-    sleep 30; pgrep i3lock && xset dpms force off
-fi
+# if [[ -z $1 ]]; then
+#     # Turn off the display after an amount of time
+#     sleep 30; pgrep i3lock && xset dpms force off
+# fi
 
 pkill -u "$USER" -USR2 dunst
