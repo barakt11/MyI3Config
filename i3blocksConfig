@@ -5,6 +5,12 @@ command=/home/barak/scripts/wifi.sh
 interval=10
 markup=pango
 
+[ipaddressPublic]
+command=/home/barak/scripts/getPublicIP.sh
+color=#00FF00
+interval=10
+markup=pango
+
 [ipaddressEth]
 command=/home/barak/scripts/getIPEth.sh
 color=#00FF00
