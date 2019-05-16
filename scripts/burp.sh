@@ -18,4 +18,3 @@ if [ $SCREENUM -eq 1 ]; then
 else
 	GDK_DPI_SCALE=0 GDK_SCALE=1 /usr/lib/jvm/java-9-jre/jre/bin/java -jar ~/softwares/burpsuite/$BURPJAR
 fi
-# GDK_DPI_SCALE=1 GDK_SCALE=2 java -jar ~/Downloads/burpsuite_community_v1.7.36.jar
