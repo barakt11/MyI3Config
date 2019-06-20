@@ -1,4 +1,4 @@
-sudo pacman -S upower dig boost-libs xdotool pamixer amixer pulseaudio xclip ulauncher xsel iw
+sudo pacman -S upower dig boost-libs xdotool pamixer amixer pulseaudio xclip ulauncher xsel iw rsync
 yay volnoti
 
 fuse for station
