@@ -4,7 +4,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:monospace 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -12,7 +12,7 @@ font pango:monospace 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
+exec nm-applet --no-agent
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
@@ -38,7 +38,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindcode $mod+41 fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -109,28 +109,21 @@ bar {
 }
 
 exec --no-startup-id /usr/bin/gnome-settings-daemon
-bindsym $mod+space exec ulauncher
+bindsym $mod+space exec "~/scripts/ulauncher.sh"
 for_window [class="^.*"] border pixel 0
 exec --no-startup-id nm-applet
-#exec_always "setxkbmap -option grp:alt_shift_toggle us,il"
 exec /usr/bin/compton -CG --backend glx --paint-on-overlay --glx-no-stencil --glx-no-rebind-pixmap --vsync opengl-swc
 exec_always "/bin/bash ~/.fehbg"
+
 bindsym $mod+Left exec "~/scripts/movefocus.sh focus left"
 bindsym $mod+Down exec "~/scripts/movefocus.sh focus down"
 bindsym $mod+Up exec "~/scripts/movefocus.sh focus up"
 bindsym $mod+Right exec "~/scripts/movefocus.sh focus right"
 
-#for_window [instance="whats-app.*"] move to scratchpad
-#bindsym $mod+brackeכtright exec "python ~/scripts/scrachpadSwitcher.py whats-app"
-#bindsym --release $mod+35 exec "~/scripts/lock.sh"
-
-
-#for_window [instance="slack*"] move to scratchpad
-#bindsym $mod+bracketleft exec "python ~/scripts/scrachpadSwitcher.py slack"
-#bindsym --release $mod+34 exec "python ~/scripts/scrachpadSwitcher.py slack"
-
-#for_window [instance="whats-app.*"] move to scratchpad
-#for_window [instance="slack*"] move to scratchpad
+bindsym $mod+Right+Control exec "~/scripts/moveMouse.sh right"
+bindsym $mod+Left+Control exec "~/scripts/moveMouse.sh left"
+bindsym $mod+Up+Control exec "~/scripts/moveMouse.sh up"
+bindsym $mod+Down+Control exec "~/scripts/moveMouse.sh down"
 
 bindsym $mod+l exec "~/scripts/lock.sh"
 exec dunst
@@ -141,41 +134,28 @@ bindsym XF86AudioMute exec --no-startup-id ~/scripts/vol.sh mute #mute sound
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
 exec killall notify-osd
 exec volnoti
+# exec pulseaudio
 exec indicator-sound-switcher
-exec franz
-bindsym $mod+bracketright [instance="franz*"] scratchpad show
-bindsym $mod+bracketleft [instance="franz*"] scratchpad show
-for_window [instance="franz*"] move to scratchpad
 
-#exec ~/Downloads/browserX-1.35.0-x86_64.AppImage
-#bindsym $mod+bracketright [instance="station*"] scratchpad show
-#bindsym $mod+bracketleft [instance="station*"] scratchpad show
-#for_window [instance="station*"] move to scratchpad
+
+exec ~/scripts/station.sh
+bindsym $mod+bracketright [instance="station*"] scratchpad show
+bindsym $mod+bracketleft [instance="station*"] scratchpad show
+for_window [instance="station*"] move to scratchpad
 
 exec google-chrome
 exec /home/barak/scripts/burp.sh
-#exec ~/softwares/slack-linux-x64/slack
-#exec ~/softwares/whats-app-web-linux-x64/whats-app-web
 exec ~/scripts/singlescreen.sh
 exec_always ~/scripts/changeWallpaper.sh
 bindsym --release Print exec gscreenshot-cli -c -s -f /tmp
 bindcode $mod+54 exec ~/scripts/chlang.sh
 #run this once installing this script xdg-mime default pcmanfm.desktop inode/directory
-
-#exec export GDK_SCALE=2
-#chrome with high dpi --force-device-scale-factor=2
-# xrandr --dpi 220
-# +.Xresources reload it via xrdb ~/.Xresources <- is the scaled backup is the normal
-# xrdb ~/.Xresources.small
-# xrdb ~/.Xresources.big 
-# after xrdb needs refresh 
-# SHIFT+SPACE cause bug -  it via uim-pref-gtk -> gloabla key bindings 1 
-# screenshot is not working
-#bindsym $mod+Shift+S move to scratchpad
 exec i3-msg "workspace 1, move workspace to output DP-1-2"
 exec i3-msg "workspace 2, move workspace to output DP-1-1"
 exec i3-msg "workspace 3, move workspace to output eDP-1"
 # Brightness control
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/scripts/bright_up.sh
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/scripts/bright_down.sh
-exec blueman-applet
+exec bluetoothctl power on
+exec ulimit -c unlimited
+exec compton
