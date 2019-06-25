@@ -1,5 +1,5 @@
 sudo pacman -S upower dig boost-libs xdotool pamixer amixer pulseaudio xclip ulauncher xsel iw rsync
-yay volnoti
+yay volnoti xwayland
 
 fuse for station
 light for brightness
