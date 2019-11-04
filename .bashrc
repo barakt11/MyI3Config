@@ -10,6 +10,9 @@ alias py='python $1'
 alias serach='grep -R "$1" .'
 alias install='sudo pacman -S $1'
 alias headphones='bluetoothctl power off;bluetoothctl power on;bluetoothctl connect 34:DF:2A:40:8B:6B'
+alias mirrorfix='sudo pacman -Syyu'
+alias wifi='python ~/scripts/wifi-helper.py'
+alias killall='~/scripts/killall.sh'
 
 search() {
     grep -R "$1" .
