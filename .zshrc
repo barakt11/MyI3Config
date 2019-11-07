@@ -1,5 +1,10 @@
 export PATH=$HOME/bin:/usr/local/bin:/usr/lib/jvm/java-8-jdk/bin/:/home/barakt/.cargo/bin:$PATH
 export JAVA_HOME=/usr/lib/jvm/java-8-jdk/
+export ZSH="/home/barak/.oh-my-zsh"
+plugins=(git
+	systemd)
+
+source $ZSH/oh-my-zsh.sh
 
 alias frc='sudo ~/projects/frc/frc.sh'
 alias burp='~/scripts/burp.sh'
@@ -34,4 +39,13 @@ if [ -f /tmp/.currentdir ]; then
 fi
 
 
-PS1='\[\e]0;\t@\h: \w\a\]${debian_chroot:+($debian_chroot)}\t@\h:\w\$ '
+# PS1='\[\e]0;\t@\h: \w\a\]${debian_chroot:+($debian_chroot)}\t@\h:\w\$ '
+
+source "/usr/share/fzf/key-bindings.zsh"
+source "/usr/share/fzf/completion.zsh"
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] 
+then
+		exec sway
+fi
+
