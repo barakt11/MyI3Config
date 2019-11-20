@@ -242,6 +242,7 @@ include /etc/sway/config.d/*
 	bindsym $mod+space exec "~/scripts/ulauncher.sh"
 	bindsym --release Print exec ~/scripts/screenshot.sh
 	bindcode $mod+54 exec ~/scripts/chlang.sh
+	exec wl-paste -t text --watch clipman store
 	
 	# Displays
 	exec i3-msg "workspace 3, move workspace to output DP-1-2"
