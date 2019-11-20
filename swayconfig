@@ -238,8 +238,8 @@ include /etc/sway/config.d/*
 	# Misc
 	bindsym --release Print exec ~/scripts/screenshot.sh
 	bindcode $mod+54 exec ~/scripts/chlang.sh
-    exec wl-paste -t text --watch clipman store
-    bindsym $mod+v exec clipman pick
+	exec greenclip daemon
+    	bindsym $mod+v exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 	
 	# Displays
 	exec_always i3-msg "workspace 1, move workspace to output eDP-1"
@@ -247,7 +247,7 @@ include /etc/sway/config.d/*
 	exec_always i3-msg "workspace 3, move workspace to output 'Dell Inc. DELL U2412M YPPY076D19FS'"
     
 	exec_always swaymsg output eDP-1 scale 2
-    exec_always swaymsg output eDP-1 position 0 0
-    exec_always swaymsg output '"Dell Inc. DELL U2412M YPPY089T1BWB"' position 1920 0
-    exec_always swaymsg output '"Dell Inc. DELL U2412M YPPY076D19FS"' position 3840 0
+	exec_always swaymsg output eDP-1 position 0 0
+	exec_always swaymsg output '"Dell Inc. DELL U2412M YPPY089T1BWB"' position 1920 0
+	exec_always swaymsg output '"Dell Inc. DELL U2412M YPPY076D19FS"' position 3840 0
     
