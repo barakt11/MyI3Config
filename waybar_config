@@ -30,6 +30,9 @@
         "network",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
+        "custom/lang",
+        "custom/left-arrow-light",
+        "custom/left-arrow-dark",
         "clock",
         "custom/left-arrow-light",
         "custom/left-arrow-dark",
@@ -51,6 +54,11 @@
     "custom/right-arrow-light": {
         "format": "",
         "tooltip": false
+    },
+    "custom/lang": {
+        "exec": "setxkbmap -query | grep layout | awk '{print $2}'",
+        "exec-if": "which setxkbmap",
+        "interval": 1
     },
     "network": {
         "interface": "wlp2s0",
